@@ -19,7 +19,7 @@ namespace pkl_app1_hikdhan
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //
         }
     }
 }
