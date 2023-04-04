@@ -51,5 +51,10 @@ namespace pkl_app1_hikdhan
         {
             Application.Exit();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
