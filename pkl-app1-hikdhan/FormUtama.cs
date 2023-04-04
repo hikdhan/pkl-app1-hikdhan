@@ -42,5 +42,26 @@ namespace pkl_app1_hikdhan
             formdate.Show();
             formdate.MdiParent = this;
         }
+
+        private void kalkulatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formkalkulator = new Formkallkulator();
+            formkalkulator.Show();
+            formkalkulator.MdiParent = this;
+        }
+
+        private void sequentialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formsequential = new Formsequential();
+            formsequential.Show();
+            formsequential.MdiParent = this;
+        }
+
+        private void percabanganToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formpercabangan = new Formpercbangan();
+            formpercabangan.Show();
+            formpercabangan.MdiParent = this;
+        }
     }
 }

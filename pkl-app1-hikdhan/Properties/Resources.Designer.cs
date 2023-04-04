@@ -63,6 +63,26 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _13_image_ {
+            get {
+                object obj = ResourceManager.GetObject("13_image ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leicester {
             get {
                 object obj = ResourceManager.GetObject("leicester", resourceCulture);
@@ -86,6 +106,26 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap leicester21 {
             get {
                 object obj = ResourceManager.GetObject("leicester21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lola_zieta__21_ {
+            get {
+                object obj = ResourceManager.GetObject("lola zieta (21)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pitik {
+            get {
+                object obj = ResourceManager.GetObject("pitik", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
