@@ -76,6 +76,12 @@
     <Compile Include="Formpercbangan.Designer.cs">
       <DependentUpon>Formpercbangan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProcedureFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProcedureFunction.Designer.cs">
+      <DependentUpon>FormProcedureFunction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsequential.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formpercbangan.resx">
       <DependentUpon>Formpercbangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProcedureFunction.resx">
+      <DependentUpon>FormProcedureFunction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsequential.resx">
       <DependentUpon>Formsequential.cs</DependentUpon>
