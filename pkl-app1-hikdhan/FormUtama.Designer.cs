@@ -40,6 +40,7 @@ namespace pkl_app1_hikdhan
             this.tUGASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kalkulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.array2DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +67,8 @@ namespace pkl_app1_hikdhan
             this.sequentialToolStripMenuItem,
             this.percabanganToolStripMenuItem,
             this.procedurefunctionToolStripMenuItem,
-            this.arrayToolStripMenuItem});
+            this.arrayToolStripMenuItem,
+            this.array2DToolStripMenuItem});
             this.latihanToolStripMenuItem.Name = "latihanToolStripMenuItem";
             this.latihanToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.latihanToolStripMenuItem.Text = "Latihan";
@@ -135,6 +137,13 @@ namespace pkl_app1_hikdhan
             this.arrayToolStripMenuItem.Text = "Array";
             this.arrayToolStripMenuItem.Click += new System.EventHandler(this.arrayToolStripMenuItem_Click);
             // 
+            // array2DToolStripMenuItem
+            // 
+            this.array2DToolStripMenuItem.Name = "array2DToolStripMenuItem";
+            this.array2DToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.array2DToolStripMenuItem.Text = "Array 2D";
+            this.array2DToolStripMenuItem.Click += new System.EventHandler(this.array2DToolStripMenuItem_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -166,5 +175,6 @@ namespace pkl_app1_hikdhan
         private System.Windows.Forms.ToolStripMenuItem percabanganToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem procedurefunctionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arrayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem array2DToolStripMenuItem;
     }
 }

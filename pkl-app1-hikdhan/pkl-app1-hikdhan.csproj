@@ -58,6 +58,12 @@
     <Compile Include="FormArray.Designer.cs">
       <DependentUpon>FormArray.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormArray2dimensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormArray2dimensi.Designer.cs">
+      <DependentUpon>FormArray2dimensi.cs</DependentUpon>
+    </Compile>
     <Compile Include="formdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormArray.resx">
       <DependentUpon>FormArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormArray2dimensi.resx">
+      <DependentUpon>FormArray2dimensi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formdate.resx">
       <DependentUpon>formdate.cs</DependentUpon>
