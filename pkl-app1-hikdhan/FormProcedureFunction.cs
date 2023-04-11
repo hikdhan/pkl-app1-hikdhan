@@ -74,12 +74,12 @@ namespace pkl_app1_hikdhan
         {
             if (sukses)
             {
-                label2.Text = "SUKSES!!!";
+                label2.Text = "HORE MENANG!!!";
                 label2.ForeColor = Color.Green;
             }
             else
             {
-                label2.Text = "GAGAL!!!";
+                label2.Text = "YAHAHAHA KALAH!!!";
                 label2.ForeColor = Color.Red;
             }
         }

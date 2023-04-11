@@ -50,7 +50,7 @@ namespace pkl_app1_hikdhan
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(257, 197);
+            this.button2.Location = new System.Drawing.Point(257, 162);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 32);
             this.button2.TabIndex = 1;
@@ -60,10 +60,10 @@ namespace pkl_app1_hikdhan
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 252);
+            this.progressBar1.Location = new System.Drawing.Point(12, 200);
             this.progressBar1.Maximum = 20;
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(584, 23);
+            this.progressBar1.Size = new System.Drawing.Size(584, 75);
             this.progressBar1.TabIndex = 2;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
