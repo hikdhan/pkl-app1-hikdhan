@@ -89,5 +89,12 @@ namespace pkl_app1_hikdhan
             formArray2d.Show();
             formArray2d.MdiParent = this;
         }
+
+        private void animasiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormAnimasi();
+            form.Show();
+            form.MdiParent = this;
+        }
     }
 }

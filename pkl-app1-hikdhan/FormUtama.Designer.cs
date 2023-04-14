@@ -37,10 +37,11 @@ namespace pkl_app1_hikdhan
             this.sequentialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.percabanganToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procedurefunctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tUGASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kalkulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.array2DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tUGASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kalkulatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.animasiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,6 @@ namespace pkl_app1_hikdhan
             this.tUGASToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(976, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -68,7 +68,8 @@ namespace pkl_app1_hikdhan
             this.percabanganToolStripMenuItem,
             this.procedurefunctionToolStripMenuItem,
             this.arrayToolStripMenuItem,
-            this.array2DToolStripMenuItem});
+            this.array2DToolStripMenuItem,
+            this.animasiToolStripMenuItem});
             this.latihanToolStripMenuItem.Name = "latihanToolStripMenuItem";
             this.latihanToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.latihanToolStripMenuItem.Text = "Latihan";
@@ -115,6 +116,20 @@ namespace pkl_app1_hikdhan
             this.procedurefunctionToolStripMenuItem.Text = "procedurefunction";
             this.procedurefunctionToolStripMenuItem.Click += new System.EventHandler(this.procedurefunctionToolStripMenuItem_Click);
             // 
+            // arrayToolStripMenuItem
+            // 
+            this.arrayToolStripMenuItem.Name = "arrayToolStripMenuItem";
+            this.arrayToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.arrayToolStripMenuItem.Text = "Array";
+            this.arrayToolStripMenuItem.Click += new System.EventHandler(this.arrayToolStripMenuItem_Click);
+            // 
+            // array2DToolStripMenuItem
+            // 
+            this.array2DToolStripMenuItem.Name = "array2DToolStripMenuItem";
+            this.array2DToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.array2DToolStripMenuItem.Text = "Array 2D";
+            this.array2DToolStripMenuItem.Click += new System.EventHandler(this.array2DToolStripMenuItem_Click);
+            // 
             // tUGASToolStripMenuItem
             // 
             this.tUGASToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -130,19 +145,12 @@ namespace pkl_app1_hikdhan
             this.kalkulatorToolStripMenuItem.Text = "kalkulator";
             this.kalkulatorToolStripMenuItem.Click += new System.EventHandler(this.kalkulatorToolStripMenuItem_Click);
             // 
-            // arrayToolStripMenuItem
+            // animasiToolStripMenuItem
             // 
-            this.arrayToolStripMenuItem.Name = "arrayToolStripMenuItem";
-            this.arrayToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.arrayToolStripMenuItem.Text = "Array";
-            this.arrayToolStripMenuItem.Click += new System.EventHandler(this.arrayToolStripMenuItem_Click);
-            // 
-            // array2DToolStripMenuItem
-            // 
-            this.array2DToolStripMenuItem.Name = "array2DToolStripMenuItem";
-            this.array2DToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.array2DToolStripMenuItem.Text = "Array 2D";
-            this.array2DToolStripMenuItem.Click += new System.EventHandler(this.array2DToolStripMenuItem_Click);
+            this.animasiToolStripMenuItem.Name = "animasiToolStripMenuItem";
+            this.animasiToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.animasiToolStripMenuItem.Text = "Animasi";
+            this.animasiToolStripMenuItem.Click += new System.EventHandler(this.animasiToolStripMenuItem_Click);
             // 
             // FormUtama
             // 
@@ -176,5 +184,6 @@ namespace pkl_app1_hikdhan
         private System.Windows.Forms.ToolStripMenuItem procedurefunctionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arrayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem array2DToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animasiToolStripMenuItem;
     }
 }
