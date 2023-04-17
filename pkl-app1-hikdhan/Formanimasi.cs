@@ -171,5 +171,10 @@ namespace pkl_app1_hikdhan
             drawmakanan();
             pictureBox1.Invalidate();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
