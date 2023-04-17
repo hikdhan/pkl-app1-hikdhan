@@ -19,12 +19,20 @@ namespace pkl_app1_hikdhan
         private int actorX = 0;
         private int actorY = 0;
 
+        private int lastX = 0;
+        private int lastY = 0;
+
+        private int[] bodyX = new int[300];
+        private int[] bodyY = new int[300];
+
         private string arah = "kanan";
 
         private int foodX = 21;
         private int foodY = 15;
 
         private int Score = 0;
+        private int panjang = 0;
+
         public FormAnimasi()
         {
             InitializeComponent();
@@ -45,19 +53,34 @@ namespace pkl_app1_hikdhan
                         var brush = new SolidBrush(Color.Azure);
                             grafik.FillRectangle(brush, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
 
-                        var pen = new Pen(Color.Azure);
-                        grafik.DrawRectangle(pen, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
+                        //var pen = new Pen(Color.Azure);
+                        //grafik.DrawRectangle(pen, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
                     }
                 }
             }
         }
 
-        private void drawaktor()
+        private void drawaktor()    
         {
+            if (kanvas is null) return;
             using (var grafik = Graphics.FromImage(kanvas))
             {
-                var brush = new SolidBrush(Color.Yellow);
-                grafik.FillRectangle(brush, actorX * uk_kot, actorY * uk_kot, uk_kot, uk_kot);
+                var brushBody = new SolidBrush(Color.GreenYellow);
+
+                bodyX[0] = lastX;
+                bodyY[0] = lastY;
+                for (var i = panjang; i > 0; i--)
+                {
+                    if (i == 0) break;
+
+                    bodyX[i] = bodyX[i - 1];
+                    bodyY[i] = bodyY[i - 1];
+                    grafik.FillRectangle(brushBody, bodyX[i] * uk_kot, bodyY[i] * uk_kot, uk_kot,uk_kot);
+                }
+                //var brushHead = new SolidBrush(Color.DarkRed);
+                //grafik.FillRectangle(brushHead, actorX * uk_kot, actorY * uk_kot, uk_kot, uk_kot);
+                //var brushHead = new SolidBrush(Color.DarkRed);
+                grafik.DrawImage(pictureBox2.Image, actorX * uk_kot - 5, actorY * uk_kot - 5, 20, 20);
             }
         }
 
@@ -66,7 +89,7 @@ namespace pkl_app1_hikdhan
             using (var grafik = Graphics.FromImage(kanvas))
             {
                 var brush = new SolidBrush(Color.Red);
-                grafik.FillRectangle(brush, foodX * uk_kot, foodY * uk_kot, uk_kot, uk_kot);
+                grafik.FillEllipse(brush, foodX * uk_kot, foodY * uk_kot, uk_kot, uk_kot);
             }
         }
 
@@ -87,6 +110,9 @@ namespace pkl_app1_hikdhan
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
+            lastX = actorX;
+            lastY = actorY;
             switch (arah)
             {
                 case "kanan":
@@ -122,11 +148,39 @@ namespace pkl_app1_hikdhan
             {
                 Randomfood();
                 Score++;
+                panjang++;
+            }
+
+            if (crash())
+            {
+                gameover();
             }
 
             drawmakanan();
 
             pictureBox1.Invalidate();
+        }
+
+        private bool crash()
+        {
+            for (var i = 0; i <=panjang; i++)
+            {
+                if (bodyX[i] != actorX) continue;
+                if (bodyY[i] != actorY) continue;
+                return true;
+            }
+            return false;
+        }
+
+        private void gameover()
+        {
+            timer1.Enabled = false;
+            timer2.Enabled = false;
+            using (var grafik = Graphics.FromImage(kanvas))
+            {
+                var brush = new SolidBrush(Color.Red);
+                grafik.DrawString("GAME OVER!!!", new Font("segoe print", 22), brush, new Point(50, 50));
+            }
         }
 
         private bool apakahaktormakanfood()
