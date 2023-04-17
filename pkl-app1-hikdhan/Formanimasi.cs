@@ -66,7 +66,7 @@ namespace pkl_app1_hikdhan
             using (var grafik = Graphics.FromImage(kanvas))
             {
                 var brush = new SolidBrush(Color.Red);
-                grafik.FillRectangle(brush, foodX * uk_kot, foodX * uk_kot, uk_kot, uk_kot);
+                grafik.FillRectangle(brush, foodX * uk_kot, foodY * uk_kot, uk_kot, uk_kot);
             }
         }
 
@@ -113,6 +113,7 @@ namespace pkl_app1_hikdhan
                 actorY = jm_kot;
 
             label1.Text = $" Score kamu adalah: {Score}";
+            label2.Text = $"{arah}: {actorX},{actorY}";
 
             drawkotak();
             drawaktor();
