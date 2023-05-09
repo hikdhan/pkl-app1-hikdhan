@@ -233,5 +233,32 @@
   <ItemGroup>
     <None Include="Resources\backgroundd.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\headkiri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\headatas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\headkanan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounddd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroun.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\body.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodyatas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

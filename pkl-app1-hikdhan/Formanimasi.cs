@@ -48,7 +48,7 @@ namespace pkl_app1_hikdhan
             kanvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             using (var grafik = Graphics.FromImage(kanvas))
             {
-                grafik.DrawImage(Properties.Resources.backgroundd, 0,0, kanvas.Width,kanvas.Height);
+                grafik.DrawImage(Properties.Resources.backgroun, 0,0, kanvas.Width,kanvas.Height);
                 for (var i = 0; i < jm_kot; i++)
                 {
                     for (var j = 0; j < jm_kot; j++)
@@ -141,7 +141,7 @@ namespace pkl_app1_hikdhan
             if (actorY < 0)
                 actorY = jm_kot;
 
-            label1.Text = $" youre score is: {Score}";
+            label1.Text = $" score: {Score}";
             label2.Text = $"{arah}: {actorX},{actorY}";
 
             drawkotak();
@@ -161,8 +161,50 @@ namespace pkl_app1_hikdhan
 
             drawmakanan();
             Game_Update();
+            head_snake();
+            bodysnake();
 
             pictureBox1.Invalidate();
+        }
+
+        void head_snake()
+        {
+            if (arah == "atas")
+            {
+                pictureBox2.Image = Properties.Resources.headatas;
+            }
+            if (arah == "bawah")
+            {
+                pictureBox2.Image = Properties.Resources.pngwing_com;
+            }
+            if (arah == "kiri")
+            {
+                pictureBox2.Image = Properties.Resources.headkiri;
+            }
+            if (arah == "kanan")
+            {
+                pictureBox2.Image = Properties.Resources.headkanan;
+            }
+        }
+
+        void bodysnake()
+        {
+            if (arah == "atas")
+            {
+                pictureBox3.Image = Properties.Resources.bodyatas;
+            }
+            if (arah == "bawah")
+            {
+                pictureBox3.Image = Properties.Resources.bodyatas;
+            }
+            if (arah == "kanan")
+            {
+                pictureBox3.Image = Properties.Resources.body;
+            }
+            if (arah == "kiri")
+            {
+                pictureBox3.Image = Properties.Resources.body;
+            }
         }
 
         void Life_index()
