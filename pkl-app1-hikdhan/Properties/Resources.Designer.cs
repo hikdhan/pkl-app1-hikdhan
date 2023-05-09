@@ -93,6 +93,26 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backgroundd {
+            get {
+                object obj = ResourceManager.GetObject("backgroundd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap badan {
+            get {
+                object obj = ResourceManager.GetObject("badan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leicester {
             get {
                 object obj = ResourceManager.GetObject("leicester", resourceCulture);
@@ -116,6 +136,26 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap leicester21 {
             get {
                 object obj = ResourceManager.GetObject("leicester21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap life {
+            get {
+                object obj = ResourceManager.GetObject("life", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap life_white {
+            get {
+                object obj = ResourceManager.GetObject("life_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +226,16 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap Telegram__kingashmedai__02_ {
             get {
                 object obj = ResourceManager.GetObject("Telegram @kingashmedai (02)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vecteezy_lontong_indonesian_compressed_rice_cake_in_a_form_of_a_16718101_174 {
+            get {
+                object obj = ResourceManager.GetObject("vecteezy_lontong-indonesian-compressed-rice-cake-in-a-form-of-a_16718101_174", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

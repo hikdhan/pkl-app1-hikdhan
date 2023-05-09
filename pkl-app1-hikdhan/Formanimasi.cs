@@ -33,6 +33,8 @@ namespace pkl_app1_hikdhan
         private int Score = 0;
         private int panjang = 0;
 
+        int life;
+
         public FormAnimasi()
         {
             InitializeComponent();
@@ -46,12 +48,13 @@ namespace pkl_app1_hikdhan
             kanvas = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             using (var grafik = Graphics.FromImage(kanvas))
             {
+                grafik.DrawImage(Properties.Resources.backgroundd, 0,0, kanvas.Width,kanvas.Height);
                 for (var i = 0; i < jm_kot; i++)
                 {
                     for (var j = 0; j < jm_kot; j++)
                     {
-                        var brush = new SolidBrush(Color.Azure);
-                            grafik.FillRectangle(brush, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
+                       // var brush = new SolidBrush(Color.DarkGreen);
+                            //grafik.FillRectangle(brush, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
 
                         //var pen = new Pen(Color.Azure);
                         //grafik.DrawRectangle(pen, i * uk_kot, j * uk_kot, uk_kot, uk_kot);
@@ -75,7 +78,7 @@ namespace pkl_app1_hikdhan
 
                     bodyX[i] = bodyX[i - 1];
                     bodyY[i] = bodyY[i - 1];
-                    grafik.FillRectangle(brushBody, bodyX[i] * uk_kot, bodyY[i] * uk_kot, uk_kot,uk_kot);
+                    grafik.DrawImage(pictureBox3.Image, bodyX[i] * uk_kot, bodyY[i] * uk_kot, uk_kot,uk_kot);
                 }
                 //var brushHead = new SolidBrush(Color.DarkRed);
                 //grafik.FillRectangle(brushHead, actorX * uk_kot, actorY * uk_kot, uk_kot, uk_kot);
@@ -89,7 +92,7 @@ namespace pkl_app1_hikdhan
             using (var grafik = Graphics.FromImage(kanvas))
             {
                 var brush = new SolidBrush(Color.Red);
-                grafik.FillEllipse(brush, foodX * uk_kot, foodY * uk_kot, uk_kot, uk_kot);
+                grafik.DrawImage(pictureBox4.Image, foodX * uk_kot -5, foodY * uk_kot -5, 20, 20);
             }
         }
 
@@ -138,7 +141,7 @@ namespace pkl_app1_hikdhan
             if (actorY < 0)
                 actorY = jm_kot;
 
-            label1.Text = $" Score kamu adalah: {Score}";
+            label1.Text = $" youre score is: {Score}";
             label2.Text = $"{arah}: {actorX},{actorY}";
 
             drawkotak();
@@ -153,12 +156,49 @@ namespace pkl_app1_hikdhan
 
             if (crash())
             {
-                gameover();
+                Life_index();
             }
 
             drawmakanan();
+            Game_Update();
 
             pictureBox1.Invalidate();
+        }
+
+        void Life_index()
+        {
+            if (life == 1)
+            {
+                life1.Image = Properties.Resources.life_white;
+            }
+            if (life == 2)
+            {
+                life2.Image = Properties.Resources.life_white;
+            }
+            if (life == 3)
+            {
+                life3.Image = Properties.Resources.life_white;
+                gameover();
+            }
+        }
+
+        private void RestartLive()
+        {
+            life = 0;
+            life1.Image = Properties.Resources.life;
+            life2.Image = Properties.Resources.life;
+            life3.Image = Properties.Resources.life;
+
+        }
+
+        void Game_Update()
+        {
+            if (crash())
+            {
+
+                life += 1;
+                Life_index();
+            }
         }
 
         private bool crash()
@@ -230,6 +270,30 @@ namespace pkl_app1_hikdhan
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormAnimasi_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            timer1.Enabled = true;
+            timer2.Enabled = true;
+            actorX = 0;
+            actorY = 0;
+            arah = "kanan";
+            panjang = 0;
+            Score = 0;
+            RestartLive();
+            pictureBox1.Focus();
+        }
+
+        private void button1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            e.IsInputKey = true;
         }
     }
 }
