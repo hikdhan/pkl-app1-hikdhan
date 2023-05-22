@@ -96,5 +96,12 @@ namespace pkl_app1_hikdhan
             form.Show();
             form.MdiParent = this;
         }
+
+        private void spaceInvaderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SpaceInvadersForm();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }
