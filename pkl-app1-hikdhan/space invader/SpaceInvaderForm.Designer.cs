@@ -138,7 +138,7 @@ namespace pkl_app1_hikdhan.space_invader
             // PeluruActorTimer
             // 
             this.PeluruActorTimer.Enabled = true;
-            this.PeluruActorTimer.Interval = 25;
+            this.PeluruActorTimer.Interval = 2;
             this.PeluruActorTimer.Tick += new System.EventHandler(this.PeluruActorTimer_Tick);
             // 
             // SpaceInvaderForm

@@ -256,7 +256,7 @@ namespace pkl_app1_hikdhan.space_invader
             _actor = new ActorModel
             {
                 Gambar = player.Image,
-                Width = 6,
+                Width = 5,
                 Height = 3,
                 PosX = 0,
                 PosY = 36,
