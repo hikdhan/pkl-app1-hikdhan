@@ -153,6 +153,16 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemy1 {
+            get {
+                object obj = ResourceManager.GetObject("enemy1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy1green {
             get {
                 object obj = ResourceManager.GetObject("enemy1green", resourceCulture);
@@ -173,9 +183,29 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemy2 {
+            get {
+                object obj = ResourceManager.GetObject("enemy2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enemy2blue {
             get {
                 object obj = ResourceManager.GetObject("enemy2blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enemy3 {
+            get {
+                object obj = ResourceManager.GetObject("enemy3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

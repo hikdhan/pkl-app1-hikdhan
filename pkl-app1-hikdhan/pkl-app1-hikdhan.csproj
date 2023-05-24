@@ -129,7 +129,6 @@
     <Compile Include="space invader\SpaceInvaderForm.Designer.cs">
       <DependentUpon>SpaceInvaderForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpaceInvadersForm.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +289,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enemy1green1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pkl_app1_hikdhan.space_invader;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -99,9 +100,9 @@ namespace pkl_app1_hikdhan
 
         private void spaceInvaderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new SpaceInvadersForm();
-            form.MdiParent = this;
+            var form = new SpaceInvaderForm();
             form.Show();
+            form.MdiParent = this;
         }
     }
 }
