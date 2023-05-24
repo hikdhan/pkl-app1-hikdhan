@@ -32,11 +32,14 @@ namespace pkl_app1_hikdhan.space_invader
             this.components = new System.ComponentModel.Container();
             this.EnemyMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.ActorMoveTimer = new System.Windows.Forms.Timer(this.components);
+            this.pelor = new System.Windows.Forms.PictureBox();
             this.enemy2 = new System.Windows.Forms.PictureBox();
             this.enemy3 = new System.Windows.Forms.PictureBox();
             this.player = new System.Windows.Forms.PictureBox();
             this.enemy1 = new System.Windows.Forms.PictureBox();
             this.SpaceBoard = new System.Windows.Forms.PictureBox();
+            this.PeluruActorTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pelor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
@@ -55,6 +58,18 @@ namespace pkl_app1_hikdhan.space_invader
             this.ActorMoveTimer.Enabled = true;
             this.ActorMoveTimer.Interval = 50;
             this.ActorMoveTimer.Tick += new System.EventHandler(this.ActorMoveTimer_Tick);
+            // 
+            // pelor
+            // 
+            this.pelor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pelor.Image = global::pkl_app1_hikdhan.Properties.Resources.pelor;
+            this.pelor.Location = new System.Drawing.Point(309, 665);
+            this.pelor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pelor.Name = "pelor";
+            this.pelor.Size = new System.Drawing.Size(71, 74);
+            this.pelor.TabIndex = 6;
+            this.pelor.TabStop = false;
+            this.pelor.Visible = false;
             // 
             // enemy2
             // 
@@ -117,13 +132,21 @@ namespace pkl_app1_hikdhan.space_invader
             this.SpaceBoard.Size = new System.Drawing.Size(1200, 615);
             this.SpaceBoard.TabIndex = 1;
             this.SpaceBoard.TabStop = false;
+            this.SpaceBoard.Click += new System.EventHandler(this.SpaceBoard_Click);
             this.SpaceBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.SpaceBoard_Paint);
+            // 
+            // PeluruActorTimer
+            // 
+            this.PeluruActorTimer.Enabled = true;
+            this.PeluruActorTimer.Interval = 25;
+            this.PeluruActorTimer.Tick += new System.EventHandler(this.PeluruActorTimer_Tick);
             // 
             // SpaceInvaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 753);
+            this.Controls.Add(this.pelor);
             this.Controls.Add(this.enemy2);
             this.Controls.Add(this.enemy3);
             this.Controls.Add(this.player);
@@ -135,6 +158,7 @@ namespace pkl_app1_hikdhan.space_invader
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SpaceInvaderForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SpaceInvaderForm_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.SpaceInvaderForm_PreviewKeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.pelor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
@@ -153,5 +177,7 @@ namespace pkl_app1_hikdhan.space_invader
         private System.Windows.Forms.PictureBox enemy2;
         private System.Windows.Forms.Timer EnemyMoveTimer;
         private System.Windows.Forms.Timer ActorMoveTimer;
+        private System.Windows.Forms.PictureBox pelor;
+        private System.Windows.Forms.Timer PeluruActorTimer;
     }
 }

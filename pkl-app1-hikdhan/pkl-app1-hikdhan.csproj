@@ -123,6 +123,7 @@
     <Compile Include="space invader\class\ActorModel.cs" />
     <Compile Include="space invader\class\BentengModel.cs" />
     <Compile Include="space invader\class\EnemyModel.cs" />
+    <Compile Include="space invader\PeluruModel.cs" />
     <Compile Include="space invader\SpaceInvaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +299,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enemy1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pelor.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

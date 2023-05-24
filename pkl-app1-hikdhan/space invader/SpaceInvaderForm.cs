@@ -21,16 +21,19 @@ namespace pkl_app1_hikdhan.space_invader
         private ActorModel _actor;
         private string _arahEnemy = "left";
         private string _arahActor = "";
+        private PeluruModel _peluruActor;
         public SpaceInvaderForm()
         {
             InitializeComponent();
             _listEnemy = new List<EnemyModel>();
             _listBenteng = new List<BentengModel>();
             _actor = new ActorModel();
+            _peluruActor = new PeluruModel();
 
             CreateEnemyObject();
             CreateBentengObject();
             CreateActorObject();
+            CreatePeluruActorObject();
             DrawAll();
         }
 
@@ -40,6 +43,7 @@ namespace pkl_app1_hikdhan.space_invader
             DrawEnemy();
             DrawBenteng();
             DrawActor();
+            DrawPeluru();
             SpaceBoard.Invalidate();
         }
 
@@ -80,6 +84,14 @@ namespace pkl_app1_hikdhan.space_invader
             using (var grafik = Graphics.FromImage(_canvas))
             {
                 grafik.DrawImage(_actor.Gambar, _actor.PosX * SQUARE_SIZE, _actor.PosY * SQUARE_SIZE, _actor.Width * SQUARE_SIZE, _actor.Height * SQUARE_SIZE);
+            }
+        }
+
+        private void DrawPeluru()
+        {
+            using (var grafik = Graphics.FromImage(_canvas))
+            {
+                grafik.DrawImage(_peluruActor.Gambar, _peluruActor.PosX * SQUARE_SIZE, _peluruActor.PosY * SQUARE_SIZE, _peluruActor.Width * SQUARE_SIZE, _peluruActor.Height * SQUARE_SIZE);
             }
         }
 
@@ -251,6 +263,14 @@ namespace pkl_app1_hikdhan.space_invader
             };
         }
 
+        private void CreatePeluruActorObject()
+        {
+            _peluruActor.IsAktif = false;
+            _peluruActor.Width = 1;
+            _peluruActor.Height = 3;
+            _peluruActor.Gambar = pelor.Image;
+        }
+
         private void EnemyMoveTimer_Tick(object sender, EventArgs e)
         {
             var palingLeft = _listEnemy.Min(x => x.PosX);
@@ -288,6 +308,9 @@ namespace pkl_app1_hikdhan.space_invader
                 case Keys.Right:
                     _arahActor = "right";
                     break;
+                case Keys.Space:
+                    TembakMusuh();
+                    break;
             }
         }
 
@@ -299,6 +322,32 @@ namespace pkl_app1_hikdhan.space_invader
         private void SpaceInvaderForm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             e.IsInputKey = true;
+        }
+
+        private void TembakMusuh()
+        {
+            if (_peluruActor.IsAktif)
+                return;
+            _peluruActor.PosX = _actor.PosX + (_actor.Width / 2);
+            _peluruActor.PosY = _actor.PosY;
+            _peluruActor.IsAktif = true;
+        }
+
+        private void SpaceBoard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PeluruActorTimer_Tick(object sender, EventArgs e)
+        {
+            if (!_peluruActor.IsAktif)
+                return;
+            _peluruActor.PosY--;
+            if (_peluruActor.PosY <= 0)
+            {
+                _peluruActor.IsAktif = false;
+                _peluruActor.PosY = -10;
+            }
         }
     }
 }
