@@ -273,6 +273,16 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap leicester1 {
+            get {
+                object obj = ResourceManager.GetObject("leicester1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leicester2 {
             get {
                 object obj = ResourceManager.GetObject("leicester2", resourceCulture);
@@ -316,6 +326,16 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap lola_zieta__21_ {
             get {
                 object obj = ResourceManager.GetObject("lola zieta (21)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap meleldak {
+            get {
+                object obj = ResourceManager.GetObject("meleldak", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,6 +393,26 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com__2_ {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap snaakehead {
             get {
                 object obj = ResourceManager.GetObject("snaakehead", resourceCulture);
@@ -396,6 +436,26 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap snakehead1 {
             get {
                 object obj = ResourceManager.GetObject("snakehead1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spacebackground {
+            get {
+                object obj = ResourceManager.GetObject("spacebackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spacebackground1 {
+            get {
+                object obj = ResourceManager.GetObject("spacebackground1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

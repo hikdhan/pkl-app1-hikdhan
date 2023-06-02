@@ -36,7 +36,7 @@ namespace pkl_app1_hikdhan
         {
             var userid = textBox1.Text;
             var password = textBox2.Text;
-            if ((userid == "dhun") && (password == "dhundhin"))
+            if ((userid == "dhun") && (password == "dhun"))
             {
                 this.Close();
             }

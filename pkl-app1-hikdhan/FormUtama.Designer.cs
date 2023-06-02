@@ -48,6 +48,7 @@ namespace pkl_app1_hikdhan
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -150,14 +151,14 @@ namespace pkl_app1_hikdhan
             // kalkulatorToolStripMenuItem
             // 
             this.kalkulatorToolStripMenuItem.Name = "kalkulatorToolStripMenuItem";
-            this.kalkulatorToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.kalkulatorToolStripMenuItem.Size = new System.Drawing.Size(222, 34);
             this.kalkulatorToolStripMenuItem.Text = "kalkulator";
             this.kalkulatorToolStripMenuItem.Click += new System.EventHandler(this.kalkulatorToolStripMenuItem_Click);
             // 
             // spaceInvaderToolStripMenuItem
             // 
             this.spaceInvaderToolStripMenuItem.Name = "spaceInvaderToolStripMenuItem";
-            this.spaceInvaderToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.spaceInvaderToolStripMenuItem.Size = new System.Drawing.Size(222, 34);
             this.spaceInvaderToolStripMenuItem.Text = "space invader";
             this.spaceInvaderToolStripMenuItem.Click += new System.EventHandler(this.spaceInvaderToolStripMenuItem_Click);
             // 
@@ -165,6 +166,8 @@ namespace pkl_app1_hikdhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::pkl_app1_hikdhan.Properties.Resources.spacebackground1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(976, 692);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;

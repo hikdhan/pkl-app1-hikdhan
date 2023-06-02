@@ -120,6 +120,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="space invader\class\ActorModel.cs" />
     <Compile Include="space invader\class\BentengModel.cs" />
     <Compile Include="space invader\class\EnemyModel.cs" />
@@ -168,14 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="space invader\SpaceInvaderForm.resx">
       <DependentUpon>SpaceInvaderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +302,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pelor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meleldak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leicester1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spacebackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spacebackground1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

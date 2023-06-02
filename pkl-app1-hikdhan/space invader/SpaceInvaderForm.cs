@@ -75,8 +75,14 @@ namespace pkl_app1_hikdhan.space_invader
         {
             using (var grafik = Graphics.FromImage(_canvas))
             {
-                foreach (var enemy in _listEnemy.Where(x => x.IsAlive).ToList())
-                    grafik.DrawImage(enemy.Gambar, enemy.PosX * SQUARE_SIZE, enemy.PosY * SQUARE_SIZE, enemy.Width * SQUARE_SIZE, enemy.Height * SQUARE_SIZE);
+                foreach (var enemy in _listEnemy.Where(x => x.IsAlive != 2).ToList())
+                {
+                    if (enemy.IsAlive==0)
+                        grafik.DrawImage(enemy.Gambar, enemy.PosX * SQUARE_SIZE, enemy.PosY * SQUARE_SIZE, enemy.Width * SQUARE_SIZE, enemy.Height * SQUARE_SIZE);
+                    else
+                        grafik.DrawImage(meledak.Image, enemy.PosX * SQUARE_SIZE, enemy.PosY * SQUARE_SIZE, enemy.Width * SQUARE_SIZE, enemy.Height * SQUARE_SIZE);
+
+                }
             }
         }
         private void DrawActor()
@@ -173,7 +179,7 @@ namespace pkl_app1_hikdhan.space_invader
                 {
                     Id = i,
                     Gambar = enemy3.Image,
-                    IsAlive = true,
+                    IsAlive = 0,
                     Width = WIDTH,
                     Height = HEIGHT,
                     PosX = (i * WIDTH * 2) - WIDTH,
@@ -189,7 +195,7 @@ namespace pkl_app1_hikdhan.space_invader
                 {
                     Id = i,
                     Gambar = enemy2.Image,
-                    IsAlive = true,
+                    IsAlive =0,
                     Width = WIDTH,
                     Height = HEIGHT,
                     PosX = ((i - 9) * WIDTH * 2) - WIDTH,
@@ -205,7 +211,7 @@ namespace pkl_app1_hikdhan.space_invader
                 {
                     Id = i,
                     Gambar = enemy1.Image,
-                    IsAlive = true,
+                    IsAlive =0,
                     Width = WIDTH,
                     Height = HEIGHT,
                     PosX = ((i - 18) * WIDTH * 2) - WIDTH,
@@ -221,7 +227,7 @@ namespace pkl_app1_hikdhan.space_invader
                 {
                     Id = i,
                     Gambar = enemy1.Image,
-                    IsAlive = true,
+                    IsAlive = 0,
                     Width = WIDTH,
                     Height = HEIGHT,
                     PosX = ((i - 27) * WIDTH * 2) - WIDTH,
@@ -347,7 +353,8 @@ namespace pkl_app1_hikdhan.space_invader
             var enemyTertembak = GetEnemyTertembak();
             if (enemyTertembak != null)
             {
-                enemyTertembak.IsAlive = false;
+                enemyTertembak.Gambar = meledak.Image;
+                enemyTertembak.IsAlive = 1;
                 _peluruActor.IsAktif = false;
                 _peluruActor.PosY = -10;
             }
@@ -361,17 +368,14 @@ namespace pkl_app1_hikdhan.space_invader
 
         private EnemyModel GetEnemyTertembak()
         {
-            foreach (var enemy in _listEnemy.Where(x => x.IsAlive).OrderByDescending(x => x.Id).ToList())
+            foreach (var enemy in _listEnemy.Where(x => x.IsAlive==0).OrderByDescending(x => x.Id).ToList())
             {
-                //  deteksi apakah kena bagian bawah enemy
-                //      - tidak kena
-                if (_peluruActor.PosY != enemy.PosY + enemy.Height)
+                if (_peluruActor.PosY != enemy.PosY-1 + enemy.Height)
                     continue;
                 if (_peluruActor.PosX < enemy.PosX)
                     continue;
                 if (_peluruActor.PosX > enemy.PosX + enemy.Width)
                     continue;
-                //      - kena!!
                 return enemy;
             }
             return null;
