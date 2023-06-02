@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace pkl_app1_hikdhan.space_invader
 {
-    public partial class SpaceInvaderForm : Form
+    public partial class background : Form
     {
         private Bitmap _canvas = null;
         const int SPACE_BOARD_WIDTH = 80;
@@ -22,7 +22,7 @@ namespace pkl_app1_hikdhan.space_invader
         private string _arahEnemy = "left";
         private string _arahActor = "";
         private PeluruModel _peluruActor;
-        public SpaceInvaderForm()
+        public background()
         {
             InitializeComponent();
             _listEnemy = new List<EnemyModel>();
@@ -52,9 +52,10 @@ namespace pkl_app1_hikdhan.space_invader
             _canvas = new Bitmap(SpaceBoard.Width, SpaceBoard.Height);
             using (var grafik = Graphics.FromImage(_canvas))
             {
+                //grafik.DrawImage(Properties.Resources.Outer_Space_Desktop_Backgrounds___Wallpaper_Cave, 0, 0, _canvas.Width, _canvas.Height);
                 for (int x = 0; x < SPACE_BOARD_WIDTH; x++)
-                    for (int y = 0; y < SPACE_BOARD_HEIGHT; y++)
-                        grafik.DrawRectangle(new Pen(Color.DarkGreen), x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+                    for (int y = 0; y < SPACE_BOARD_HEIGHT; y++) ;
+                        //grafik.DrawRectangle(new Pen(Color.DarkGreen), x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             }
         }
 
@@ -80,7 +81,10 @@ namespace pkl_app1_hikdhan.space_invader
                     if (enemy.IsAlive==0)
                         grafik.DrawImage(enemy.Gambar, enemy.PosX * SQUARE_SIZE, enemy.PosY * SQUARE_SIZE, enemy.Width * SQUARE_SIZE, enemy.Height * SQUARE_SIZE);
                     else
+                    {
                         grafik.DrawImage(meledak.Image, enemy.PosX * SQUARE_SIZE, enemy.PosY * SQUARE_SIZE, enemy.Width * SQUARE_SIZE, enemy.Height * SQUARE_SIZE);
+                        enemy.IsAlive = 2;
+                    }
 
                 }
             }
@@ -239,10 +243,10 @@ namespace pkl_app1_hikdhan.space_invader
 
         private void CreateBentengObject()
         {
-            const int WIDTH = 7;
+            const int WIDTH = 9;
             const int HEIGHT = 1;
 
-            for (var i = 1; i <= 8; i++)
+            for (var i = 1; i <= 6; i++)
             {
                 var newBenteng = new BentengModel
                 {
@@ -251,7 +255,7 @@ namespace pkl_app1_hikdhan.space_invader
                     Height = HEIGHT,
                     Width = WIDTH,
                     PosX = (i * (WIDTH + 4)) - WIDTH,
-                    PosY = 32
+                    PosY = 27
                 };
                 _listBenteng.Add(newBenteng);
             }
@@ -279,8 +283,8 @@ namespace pkl_app1_hikdhan.space_invader
 
         private void EnemyMoveTimer_Tick(object sender, EventArgs e)
         {
-            var palingLeft = _listEnemy.Min(x => x.PosX);
-            var palingRight = _listEnemy.Max(x => x.PosX + x.Width);
+            var palingLeft = _listEnemy.Where(x => x.IsAlive == 0).Min(x => x.PosX);
+            var palingRight = _listEnemy.Where(x => x.IsAlive == 0).Max(x => x.PosX + x.Width);
 
             if ((_arahEnemy == "left") && (palingLeft <= 0))
                 _arahEnemy = "right";
@@ -335,7 +339,7 @@ namespace pkl_app1_hikdhan.space_invader
             if (_peluruActor.IsAktif)
                 return;
             _peluruActor.PosX = _actor.PosX + (_actor.Width / 2);
-            _peluruActor.PosY = _actor.PosY;
+            _peluruActor.PosY = _actor.PosY - 3;
             _peluruActor.IsAktif = true;
         }
 
@@ -349,6 +353,13 @@ namespace pkl_app1_hikdhan.space_invader
             if (!_peluruActor.IsAktif)
                 return;
             _peluruActor.PosY--;
+
+            var bentengTertembak = GetBentengTertembak();
+            if (bentengTertembak != null)
+            {
+                _peluruActor.IsAktif = false;
+                _peluruActor.PosY = -10;
+            }
 
             var enemyTertembak = GetEnemyTertembak();
             if (enemyTertembak != null)
@@ -364,6 +375,9 @@ namespace pkl_app1_hikdhan.space_invader
                 _peluruActor.IsAktif = false;
                 _peluruActor.PosY = -10;
             }
+           
+          
+            
         }
 
         private EnemyModel GetEnemyTertembak()
@@ -381,5 +395,21 @@ namespace pkl_app1_hikdhan.space_invader
             return null;
         }
 
+        private BentengModel GetBentengTertembak()
+        {
+            foreach (var benteng in _listBenteng)
+            {
+                if (_peluruActor.PosY > benteng.PosY - 1 + benteng.Height)
+                    continue;
+                if (_peluruActor.PosX < benteng.PosX)
+                    continue;
+                if (_peluruActor.PosX > benteng.PosX + benteng.Width)
+                    continue;
+                return benteng;
+            }
+            return null;
+        }
     }
+
+    
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace pkl_app1_hikdhan.space_invader
 {
-    partial class SpaceInvaderForm
+    partial class background
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@ namespace pkl_app1_hikdhan.space_invader
             this.EnemyMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.ActorMoveTimer = new System.Windows.Forms.Timer(this.components);
             this.PeluruActorTimer = new System.Windows.Forms.Timer(this.components);
+            this.latarbelakang = new System.Windows.Forms.PictureBox();
             this.meledak = new System.Windows.Forms.PictureBox();
             this.pelor = new System.Windows.Forms.PictureBox();
             this.enemy2 = new System.Windows.Forms.PictureBox();
@@ -40,6 +41,7 @@ namespace pkl_app1_hikdhan.space_invader
             this.player = new System.Windows.Forms.PictureBox();
             this.enemy1 = new System.Windows.Forms.PictureBox();
             this.SpaceBoard = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.latarbelakang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meledak)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pelor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).BeginInit();
@@ -64,8 +66,19 @@ namespace pkl_app1_hikdhan.space_invader
             // PeluruActorTimer
             // 
             this.PeluruActorTimer.Enabled = true;
-            this.PeluruActorTimer.Interval = 1;
             this.PeluruActorTimer.Tick += new System.EventHandler(this.PeluruActorTimer_Tick);
+            // 
+            // latarbelakang
+            // 
+            this.latarbelakang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.latarbelakang.Image = global::pkl_app1_hikdhan.Properties.Resources.Outer_Space_Desktop_Backgrounds___Wallpaper_Cave;
+            this.latarbelakang.Location = new System.Drawing.Point(467, 665);
+            this.latarbelakang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.latarbelakang.Name = "latarbelakang";
+            this.latarbelakang.Size = new System.Drawing.Size(71, 74);
+            this.latarbelakang.TabIndex = 8;
+            this.latarbelakang.TabStop = false;
+            this.latarbelakang.Visible = false;
             // 
             // meledak
             // 
@@ -155,11 +168,12 @@ namespace pkl_app1_hikdhan.space_invader
             this.SpaceBoard.Click += new System.EventHandler(this.SpaceBoard_Click);
             this.SpaceBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.SpaceBoard_Paint);
             // 
-            // SpaceInvaderForm
+            // background
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 753);
+            this.Controls.Add(this.latarbelakang);
             this.Controls.Add(this.meledak);
             this.Controls.Add(this.pelor);
             this.Controls.Add(this.enemy2);
@@ -167,12 +181,13 @@ namespace pkl_app1_hikdhan.space_invader
             this.Controls.Add(this.player);
             this.Controls.Add(this.enemy1);
             this.Controls.Add(this.SpaceBoard);
-            this.Name = "SpaceInvaderForm";
+            this.Name = "background";
             this.Text = "SpaceInvaderForm";
             this.Load += new System.EventHandler(this.SpaceInvaderForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SpaceInvaderForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SpaceInvaderForm_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.SpaceInvaderForm_PreviewKeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.latarbelakang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meledak)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pelor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy2)).EndInit();
@@ -196,5 +211,6 @@ namespace pkl_app1_hikdhan.space_invader
         private System.Windows.Forms.PictureBox pelor;
         private System.Windows.Forms.Timer PeluruActorTimer;
         private System.Windows.Forms.PictureBox meledak;
+        private System.Windows.Forms.PictureBox latarbelakang;
     }
 }

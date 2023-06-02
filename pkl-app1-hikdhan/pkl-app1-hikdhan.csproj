@@ -321,5 +321,8 @@
   <ItemGroup>
     <None Include="Resources\pngwing.com %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Outer Space Desktop Backgrounds - Wallpaper Cave.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

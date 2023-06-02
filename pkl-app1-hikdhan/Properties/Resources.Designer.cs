@@ -343,6 +343,16 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Outer_Space_Desktop_Backgrounds___Wallpaper_Cave {
+            get {
+                object obj = ResourceManager.GetObject("Outer Space Desktop Backgrounds - Wallpaper Cave", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pelor {
             get {
                 object obj = ResourceManager.GetObject("pelor", resourceCulture);

@@ -100,7 +100,7 @@ namespace pkl_app1_hikdhan
 
         private void spaceInvaderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new SpaceInvaderForm();
+            var form = new background();
             form.Show();
             form.MdiParent = this;
         }
