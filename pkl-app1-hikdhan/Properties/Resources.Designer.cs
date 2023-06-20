@@ -223,6 +223,16 @@ namespace pkl_app1_hikdhan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enemyBullet {
+            get {
+                object obj = ResourceManager.GetObject("enemyBullet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap food {
             get {
                 object obj = ResourceManager.GetObject("food", resourceCulture);
@@ -356,6 +366,16 @@ namespace pkl_app1_hikdhan.Properties {
         internal static System.Drawing.Bitmap pelor {
             get {
                 object obj = ResourceManager.GetObject("pelor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap peluru_enemy {
+            get {
+                object obj = ResourceManager.GetObject("peluru enemy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -16,12 +16,14 @@ namespace pkl_app1_hikdhan.space_invader
         const int SPACE_BOARD_WIDTH = 80;
         const int SPACE_BOARD_HEIGHT = 40;
         const int SQUARE_SIZE = 10;
+        const int JUMLAH_PELURU_ENEMY = 3;
         private List<EnemyModel> _listEnemy;
         private List<BentengModel> _listBenteng;
         private ActorModel _actor;
         private string _arahEnemy = "left";
         private string _arahActor = "";
         private PeluruModel _peluruActor;
+        private List<PeluruModel> _listPeluruEnemy;
         public background()
         {
             InitializeComponent();
@@ -29,11 +31,13 @@ namespace pkl_app1_hikdhan.space_invader
             _listBenteng = new List<BentengModel>();
             _actor = new ActorModel();
             _peluruActor = new PeluruModel();
+            _listPeluruEnemy = new List<PeluruModel>();
 
             CreateEnemyObject();
             CreateBentengObject();
             CreateActorObject();
             CreatePeluruActorObject();
+            CreatePeluruEnemyObject();
             DrawAll();
         }
 
@@ -44,6 +48,7 @@ namespace pkl_app1_hikdhan.space_invader
             DrawBenteng();
             DrawActor();
             DrawPeluru();
+            DrawPeluruEnemy();
             SpaceBoard.Invalidate();
         }
 
@@ -102,6 +107,15 @@ namespace pkl_app1_hikdhan.space_invader
             using (var grafik = Graphics.FromImage(_canvas))
             {
                 grafik.DrawImage(_peluruActor.Gambar, _peluruActor.PosX * SQUARE_SIZE, _peluruActor.PosY * SQUARE_SIZE, _peluruActor.Width * SQUARE_SIZE, _peluruActor.Height * SQUARE_SIZE);
+            }
+        }
+
+        private void DrawPeluruEnemy()
+        {
+            using (var grafik = Graphics.FromImage(_canvas))
+            {
+                foreach (var item in _listPeluruEnemy.Where(x => x.IsAktif))
+                    grafik.DrawImage(item.Gambar, item.PosX * SQUARE_SIZE, item.PosY * SQUARE_SIZE, item.Width * SQUARE_SIZE, item.Height * SQUARE_SIZE);
             }
         }
 
@@ -281,6 +295,21 @@ namespace pkl_app1_hikdhan.space_invader
             _peluruActor.Gambar = pelor.Image;
         }
 
+        private void CreatePeluruEnemyObject()
+        {
+            for (var i = 1; i <= JUMLAH_PELURU_ENEMY; i++)
+            {
+                _listPeluruEnemy.Add(new PeluruModel
+                {
+                    Gambar = pelorenemy.Image,
+                    PosX = 0,
+                    PosY = 0,
+                    Height = 1,
+                    Width = 1
+                });
+            }
+        }
+
         private void EnemyMoveTimer_Tick(object sender, EventArgs e)
         {
             var palingLeft = _listEnemy.Where(x => x.IsAlive == 0).Min(x => x.PosX);
@@ -408,6 +437,63 @@ namespace pkl_app1_hikdhan.space_invader
                 return benteng;
             }
             return null;
+        }
+
+        private void PeluruEnemyMoveTimer_Tick(object sender, EventArgs e)
+        {
+            foreach (var item in _listPeluruEnemy)
+            {
+                if (!item.IsAktif)
+                    continue;
+                item.PosY++;
+
+                if (item.PosY > SPACE_BOARD_HEIGHT)
+                {
+                    item.IsAktif = false;
+                    item.PosY = -10;
+                }
+            }
+        }
+
+        private void PeluruEnemyTembakTimer_Tick(object sender, EventArgs e)
+        {
+            var enemyNembak = GetRandomEnemyBawah();
+            var peluru = _listPeluruEnemy.FirstOrDefault(x => !x.IsAktif);
+            if (peluru is null)
+                return;
+
+            peluru.IsAktif = true;
+            peluru.PosX = enemyNembak.PosX;
+            peluru.PosY = enemyNembak.PosY;
+        }
+
+        private List<EnemyModel> ListEnemyBawah()
+        {
+            var listPosX = _listEnemy
+                .Where(x => x.IsAlive == 0)
+                .Select(x => x.PosX)
+                .Distinct().ToList();
+            var listEnemyBawah = new List<EnemyModel>();
+            foreach (var item in listPosX)
+            {
+                var enemyBawah = _listEnemy
+                    .Where(x => x.IsAlive == 0)
+                    .Where(x => x.PosX == item)
+                    .OrderByDescending(x => x.PosY)
+                    .First();
+                listEnemyBawah.Add(enemyBawah);
+            }
+            return listEnemyBawah;
+        }
+
+        private EnemyModel GetRandomEnemyBawah()
+        {
+            var listEnemy = ListEnemyBawah();
+            var randomX = new Random();
+            var kolomRandom = randomX.Next(1, listEnemy.Count);
+            var result = listEnemy.Take(kolomRandom).Last();
+            return result;
+
         }
     }
 
