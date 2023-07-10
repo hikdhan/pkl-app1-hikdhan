@@ -172,10 +172,10 @@ namespace pkl_app1_hikdhan.space_invader
                             brush = new SolidBrush(Color.Teal);
                             break;
                         case 1:
-                            brush = new SolidBrush(Color.FromArgb(0, 40, 40));
+                            brush = new SolidBrush(Color.DarkSlateGray);
                             break;
                         default:
-                            brush = new SolidBrush(Color.DarkSlateGray);
+                            brush = new SolidBrush(Color.Black);
                             break;
                     };
                     grafik.FillRectangle(brush, benteng.PosX * SQUARE_SIZE, benteng.PosY * SQUARE_SIZE, benteng.Width * SQUARE_SIZE, benteng.Height * SQUARE_SIZE);
@@ -183,6 +183,36 @@ namespace pkl_app1_hikdhan.space_invader
                 }
             }
         }
+
+        private void DrawGameOver()
+        {
+            using ( var grafik = Graphics.FromImage(_canvas))
+            {
+                var margin = 10;
+
+                Font font = new Font("Arial", 34, FontStyle.Bold);
+                string text = "GAME OVER";
+                SizeF size = grafik.MeasureString(text, font);
+                size.Width += margin * 2;
+                size.Height += margin * 2;
+
+                var posXText = (SpaceBoard.Width / 2) - (size.Width / 2);
+                var posYText = 50;
+
+                Rectangle rect = new Rectangle((int)posXText, posYText, (int)size.Width, (int)size.Height);
+                var fillBrush = new SolidBrush(Color.Black);
+
+                grafik.FillRectangle(fillBrush, rect);
+                var line = new Pen(Color.White);
+                grafik.DrawRectangle(line, rect);
+
+                Brush brush = Brushes.White;
+                PointF position = new PointF(posXText + margin, posYText + margin);
+                grafik.DrawString(text, font, brush, position);
+            }
+            SpaceBoard.Invalidate();
+        }
+        
 
 
         private void CreateEnemyObject()
@@ -434,7 +464,31 @@ namespace pkl_app1_hikdhan.space_invader
                     continue;
                 if (_peluruActor.PosX > benteng.PosX + benteng.Width)
                     continue;
+                if (benteng.DefencePower <= 0)
+                    continue;
                 return benteng;
+            }
+            return null;
+        }
+
+        private BentengModel GetBentengTertembakEnemy(PeluruModel peluru)
+        {
+            if (!peluru.IsAktif) return null;
+            
+            foreach (var benteng in _listBenteng)
+            {
+                if (benteng.DefencePower <= 0)
+                    continue;
+                if (peluru.PosY < benteng.PosY)
+                    continue;
+                if (peluru.PosY > benteng.PosY + benteng.Height - 1)
+                    continue;
+                if (peluru.PosX < benteng.PosX)
+                    continue;
+                if (peluru.PosX > benteng.PosX + benteng.Width - 1)
+                    continue;
+                return benteng;
+
             }
             return null;
         }
@@ -452,7 +506,47 @@ namespace pkl_app1_hikdhan.space_invader
                     item.IsAktif = false;
                     item.PosY = -10;
                 }
+
+                var benteng = GetBentengTertembakEnemy(item);
+                if (benteng!= null)
+                {
+                    benteng.DefencePower--;
+                    item.IsAktif = false;
+                    item.PosY = -10;
+                }
+
+                if (PeluruEnemyKenaActor(item))
+                {
+                    StopAllTimer();
+                    DrawGameOver();
+                }
+
             }
+        }
+
+        private bool PeluruEnemyKenaActor(PeluruModel peluru)
+        {
+            if (!peluru.IsAktif)
+                return false;
+            if (peluru.PosY < _actor.PosY)
+                return false;
+            if (peluru.PosY > _actor.PosY + _actor.Height - 1)
+                return false;
+            if (peluru.PosX < _actor.PosX)
+                return false;
+            if (peluru.PosX > _actor.PosX + _actor.Width - 1)
+                return false;
+
+            return true;
+        }
+
+        private void StopAllTimer()
+        {
+            EnemyMoveTimer.Stop();
+            ActorMoveTimer.Stop();
+            PeluruActorTimer.Stop();
+            PeluruEnemyMoveTimer.Stop();
+            PeluruEnemyTembakTimer.Stop();
         }
 
         private void PeluruEnemyTembakTimer_Tick(object sender, EventArgs e)
