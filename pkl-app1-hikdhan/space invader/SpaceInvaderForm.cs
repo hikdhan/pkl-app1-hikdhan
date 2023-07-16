@@ -24,6 +24,8 @@ namespace pkl_app1_hikdhan.space_invader
         private string _arahActor = "";
         private PeluruModel _peluruActor;
         private List<PeluruModel> _listPeluruEnemy;
+        private int _score = 0;
+        private bool _isGameOver = false;
         public background()
         {
             InitializeComponent();
@@ -49,6 +51,12 @@ namespace pkl_app1_hikdhan.space_invader
             DrawActor();
             DrawPeluru();
             DrawPeluruEnemy();
+
+            if (!_isGameOver)
+            {
+                DScore();
+            }
+
             SpaceBoard.Invalidate();
         }
 
@@ -188,32 +196,72 @@ namespace pkl_app1_hikdhan.space_invader
         {
             using ( var grafik = Graphics.FromImage(_canvas))
             {
+
                 var margin = 10;
 
-                Font font = new Font("Arial", 34, FontStyle.Bold);
-                string text = "GAME OVER";
+                Font titleFont = new Font("Arial", 34, FontStyle.Bold);
+                string titleText = "GAME OVER!";
+                SizeF titleSize = grafik.MeasureString(titleText, titleFont);
+                titleSize.Width += margin * 2;
+                titleSize.Height += margin * 2;
+
+                Font scoreFont = new Font("Arial", 15, FontStyle.Bold);
+                string scoreText = $"Score Yang Didapatkan: {_score}";
+                SizeF scoreSize = grafik.MeasureString(scoreText, scoreFont);
+                scoreSize.Width += margin;
+                scoreSize.Height += margin;
+
+                var posXText = (SpaceBoard.Width / 2) - (titleSize.Width / 2);
+                var posYText = (SpaceBoard.Height / 2) - (titleSize.Height / 2);
+
+                Rectangle titleRect = new Rectangle((int)posXText, (int)posYText, (int)titleSize.Width, (int)titleSize.Height);
+                Rectangle scoreRect = new Rectangle((int)posXText, (int)posYText + (int)titleSize.Height + margin, (int)scoreSize.Width, (int)scoreSize.Height);
+                var fillBrush = new SolidBrush(Color.White);
+                var line = new Pen(Color.Aqua);
+
+                grafik.FillRectangle(fillBrush, titleRect);
+                grafik.FillRectangle(fillBrush, scoreRect);
+                grafik.DrawRectangle(line, titleRect);
+                grafik.DrawRectangle(line, scoreRect);
+
+                Brush titleBrush = Brushes.Black;
+                Brush scoreBrush = Brushes.Black;
+                PointF titlePosition = new PointF(posXText + margin, posYText + margin);
+                PointF scorePosition = new PointF(posXText + margin, posYText + titleSize.Height + margin);
+                grafik.DrawString(titleText, titleFont, titleBrush, titlePosition);
+                grafik.DrawString(scoreText, scoreFont, scoreBrush, scorePosition);
+            }
+            SpaceBoard.Invalidate();
+        }
+
+        private void DScore()
+        {
+            using (var grafik = Graphics.FromImage(_canvas))
+            {
+                var margin = 5;
+
+                Font font = new Font("Arial", 13, FontStyle.Bold);
+                string text = $"Score: {_score}";
                 SizeF size = grafik.MeasureString(text, font);
                 size.Width += margin * 2;
                 size.Height += margin * 2;
 
-                var posXText = (SpaceBoard.Width / 2) - (size.Width / 2);
-                var posYText = 50;
+                var posXText = SpaceBoard.Width - size.Width - margin;
+                var posYText = margin;
 
-                Rectangle rect = new Rectangle((int)posXText, posYText, (int)size.Width, (int)size.Height);
-                var fillBrush = new SolidBrush(Color.Black);
+                Rectangle rect = new Rectangle((int)posXText, (int)posYText, (int)size.Width, (int)size.Height);
+                var fillBrush = new SolidBrush(Color.White);
+                var line = new Pen(Color.Aqua);
 
                 grafik.FillRectangle(fillBrush, rect);
-                var line = new Pen(Color.White);
                 grafik.DrawRectangle(line, rect);
 
-                Brush brush = Brushes.White;
+                Brush brush = Brushes.Black;
                 PointF position = new PointF(posXText + margin, posYText + margin);
                 grafik.DrawString(text, font, brush, position);
             }
             SpaceBoard.Invalidate();
         }
-        
-
 
         private void CreateEnemyObject()
         {
@@ -427,6 +475,7 @@ namespace pkl_app1_hikdhan.space_invader
                 enemyTertembak.IsAlive = 1;
                 _peluruActor.IsAktif = false;
                 _peluruActor.PosY = -10;
+                _score += 10;
             }
 
             if (_peluruActor.PosY <= 0)
