@@ -76,7 +76,7 @@ namespace pkl_app1_hikdhan.space_invader
             // PeluruEnemyMoveTimer
             // 
             this.PeluruEnemyMoveTimer.Enabled = true;
-            this.PeluruEnemyMoveTimer.Interval = 200;
+            this.PeluruEnemyMoveTimer.Interval = 400;
             this.PeluruEnemyMoveTimer.Tick += new System.EventHandler(this.PeluruEnemyMoveTimer_Tick);
             // 
             // PeluruEnemyTembakTimer

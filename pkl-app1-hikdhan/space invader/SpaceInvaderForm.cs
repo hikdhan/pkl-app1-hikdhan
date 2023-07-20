@@ -5,7 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace pkl_app1_hikdhan.space_invader
@@ -26,6 +28,13 @@ namespace pkl_app1_hikdhan.space_invader
         private List<PeluruModel> _listPeluruEnemy;
         private int _score = 0;
         private bool _isGameOver = false;
+
+        const string BENTENG_HIT_SOUND = "pkl_app1_hikdhan.beteng-hit.wav";
+        const string ENEMY_NEMBAK_SOUND = "pkl_app1_hikdhan.enemy-nembak.wav";
+        const string ENEMY_KENA_SOUND = "pkl_app1_hikdhan.enemy-kena.wav";
+        const string ACTOR_NEMBAK_SOUND = "pkl_app1_hikdhan.actor-nembak.wav";
+        const string ACTOR_DEATH_SOUND = "pkl_app1_hikdhan.actor-death.wav";
+
         public background()
         {
             InitializeComponent();
@@ -125,6 +134,13 @@ namespace pkl_app1_hikdhan.space_invader
                 foreach (var item in _listPeluruEnemy.Where(x => x.IsAktif))
                     grafik.DrawImage(item.Gambar, item.PosX * SQUARE_SIZE, item.PosY * SQUARE_SIZE, item.Width * SQUARE_SIZE, item.Height * SQUARE_SIZE);
             }
+        }
+
+        private void PlaySound(string soundName)
+        {
+            Stream soundStream = typeof(Program).Assembly.GetManifestResourceStream(soundName);
+            SoundPlayer soundPlayer = new SoundPlayer(soundStream);
+            soundPlayer.Play();
         }
 
         private void MoveEnemy()
@@ -448,6 +464,7 @@ namespace pkl_app1_hikdhan.space_invader
             _peluruActor.PosX = _actor.PosX + (_actor.Width / 2);
             _peluruActor.PosY = _actor.PosY - 3;
             _peluruActor.IsAktif = true;
+            PlaySound(ACTOR_NEMBAK_SOUND);
         }
 
         private void SpaceBoard_Click(object sender, EventArgs e)
@@ -476,6 +493,7 @@ namespace pkl_app1_hikdhan.space_invader
                 _peluruActor.IsAktif = false;
                 _peluruActor.PosY = -10;
                 _score += 10;
+                PlaySound(ENEMY_KENA_SOUND);
             }
 
             if (_peluruActor.PosY <= 0)
@@ -562,6 +580,7 @@ namespace pkl_app1_hikdhan.space_invader
                     benteng.DefencePower--;
                     item.IsAktif = false;
                     item.PosY = -10;
+                    PlaySound(BENTENG_HIT_SOUND);
                 }
 
                 if (PeluruEnemyKenaActor(item))
@@ -608,6 +627,7 @@ namespace pkl_app1_hikdhan.space_invader
             peluru.IsAktif = true;
             peluru.PosX = enemyNembak.PosX;
             peluru.PosY = enemyNembak.PosY;
+            PlaySound(ENEMY_NEMBAK_SOUND);
         }
 
         private List<EnemyModel> ListEnemyBawah()

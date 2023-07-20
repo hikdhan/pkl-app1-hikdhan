@@ -330,5 +330,18 @@
   <ItemGroup>
     <None Include="Resources\enemyBullet.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="beteng-hit.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="enemy-nembak.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="actor-nembak.wav" />
+    <EmbeddedResource Include="enemy-kena.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="actor-death.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
