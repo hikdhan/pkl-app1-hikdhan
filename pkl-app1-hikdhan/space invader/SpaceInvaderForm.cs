@@ -215,13 +215,13 @@ namespace pkl_app1_hikdhan.space_invader
 
                 var margin = 10;
 
-                Font titleFont = new Font("Arial", 34, FontStyle.Bold);
+                Font titleFont = new Font("MV Boli", 34, FontStyle.Bold);
                 string titleText = "GAME OVER!";
                 SizeF titleSize = grafik.MeasureString(titleText, titleFont);
                 titleSize.Width += margin * 2;
                 titleSize.Height += margin * 2;
 
-                Font scoreFont = new Font("Arial", 15, FontStyle.Bold);
+                Font scoreFont = new Font("MV Boli", 15, FontStyle.Bold);
                 string scoreText = $"Score Yang Didapatkan: {_score}";
                 SizeF scoreSize = grafik.MeasureString(scoreText, scoreFont);
                 scoreSize.Width += margin;

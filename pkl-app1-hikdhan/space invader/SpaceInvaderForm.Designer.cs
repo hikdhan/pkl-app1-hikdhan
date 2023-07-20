@@ -44,6 +44,7 @@ namespace pkl_app1_hikdhan.space_invader
             this.player = new System.Windows.Forms.PictureBox();
             this.enemy1 = new System.Windows.Forms.PictureBox();
             this.SpaceBoard = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pelorenemy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.latarbelakang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meledak)).BeginInit();
@@ -76,13 +77,13 @@ namespace pkl_app1_hikdhan.space_invader
             // PeluruEnemyMoveTimer
             // 
             this.PeluruEnemyMoveTimer.Enabled = true;
-            this.PeluruEnemyMoveTimer.Interval = 400;
+            this.PeluruEnemyMoveTimer.Interval = 200;
             this.PeluruEnemyMoveTimer.Tick += new System.EventHandler(this.PeluruEnemyMoveTimer_Tick);
             // 
             // PeluruEnemyTembakTimer
             // 
             this.PeluruEnemyTembakTimer.Enabled = true;
-            this.PeluruEnemyTembakTimer.Interval = 4000;
+            this.PeluruEnemyTembakTimer.Interval = 6000;
             this.PeluruEnemyTembakTimer.Tick += new System.EventHandler(this.PeluruEnemyTembakTimer_Tick);
             // 
             // pelorenemy
@@ -197,11 +198,21 @@ namespace pkl_app1_hikdhan.space_invader
             this.SpaceBoard.Click += new System.EventHandler(this.SpaceBoard_Click);
             this.SpaceBoard.Paint += new System.Windows.Forms.PaintEventHandler(this.SpaceBoard_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1251, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "label1";
+            // 
             // background
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 753);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pelorenemy);
             this.Controls.Add(this.latarbelakang);
             this.Controls.Add(this.meledak);
@@ -227,6 +238,7 @@ namespace pkl_app1_hikdhan.space_invader
             ((System.ComponentModel.ISupportInitialize)(this.enemy1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpaceBoard)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -246,5 +258,6 @@ namespace pkl_app1_hikdhan.space_invader
         private System.Windows.Forms.PictureBox pelorenemy;
         private System.Windows.Forms.Timer PeluruEnemyMoveTimer;
         private System.Windows.Forms.Timer PeluruEnemyTembakTimer;
+        private System.Windows.Forms.Label label1;
     }
 }
